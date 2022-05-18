@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <actions>
-        <action>
-            <actionName>run</actionName>
+    <action>
+        <actionName>run</actionName>
+        <packagings>
+            <packaging>jar</packaging>
+        </packagings>
+        <goals>
+            <goal>process-classes</goal>
+            <goal>org.codehaus.mojo:exec-maven-plugin:3.0.0:exec</goal>
+        </goals>
+        <properties>
+            <exec.args>-classpath %classpath aluno.CadastroAluno</exec.args>
+            <exec.executable>java</exec.executable>
+        </properties>
+    </action>
+    <action>
+            <actionName>debug</actionName>
             <packagings>
                 <packaging>jar</packaging>
             </packagings>
@@ -10,8 +24,9 @@
                 <goal>org.codehaus.mojo:exec-maven-plugin:3.0.0:exec</goal>
             </goals>
             <properties>
-                <exec.args>-classpath %classpath aluno.codAluno</exec.args>
+                <exec.args>-agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address} -classpath %classpath aluno.CadastroAluno</exec.args>
                 <exec.executable>java</exec.executable>
+                <jpda.listen>true</jpda.listen>
             </properties>
         </action>
-    </actions>
+</actions>

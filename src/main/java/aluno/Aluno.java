@@ -1,9 +1,9 @@
 package aluno;
 
-
 class Aluno {
-    int codAluno;
+
+    int codigo;
     String nome;
     String endereco;
-    String diciplina;
+    String disciplina;
 }
